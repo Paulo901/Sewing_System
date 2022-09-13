@@ -16,7 +16,7 @@ public class HistoricModel implements Serializable {
  //   @Column(nullable = false)
  //   private LocalDateTime dataCompra;
     @Column
-    private String quantidade;
+    private int quantidade;
     //fk_itens int not null,
     //descontos
     //fk_Conta int not null,
@@ -34,10 +34,10 @@ public class HistoricModel implements Serializable {
  //   public void setDataCompra(LocalDateTime dataCompra) {
  //       this.dataCompra = dataCompra;
  //   }
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 }

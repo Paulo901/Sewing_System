@@ -9,7 +9,7 @@ public class HistoricDto {
  //   @NotBlank
 //    private LocalDateTime dataCompra;
   //  @NotBlank
-    private String quantidade;
+    private int quantidade;
 
 
 
@@ -21,11 +21,11 @@ public class HistoricDto {
  //      this.dataCompra = dataCompra;
 //    }
 
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 }

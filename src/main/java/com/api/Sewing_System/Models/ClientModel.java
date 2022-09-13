@@ -13,9 +13,9 @@ public class ClientModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idCliente;
     @Column(nullable = false, length = 100)
-    private String clNome;
+    private String clnome;
     @Column(nullable = false, unique = true, length = 14)
-    private String CPF;
+    private String cpf;
     @Column(nullable = false)
     private String senha;
 
@@ -27,17 +27,17 @@ public class ClientModel implements Serializable {
     public void setIdCliente(UUID idCliente) {
         this.idCliente = idCliente;
     }
-    public String getClNome() {
-        return clNome;
+    public String getClnome() {
+        return clnome;
     }
-    public void setClNome(String clName) {
-        this.clNome = clNome;
+    public void setClnome(String clNome) {
+        this.clnome = clNome;
     }
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
     public String getSenha() {
         return senha;

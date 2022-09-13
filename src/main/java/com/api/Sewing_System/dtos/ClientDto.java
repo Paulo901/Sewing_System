@@ -1,6 +1,7 @@
 package com.api.Sewing_System.dtos;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class ClientDto {
@@ -8,27 +9,30 @@ public class ClientDto {
     //1 hora e 4 minutos da aula "Spring Boot | Curso Completo 2022
 
     @NotBlank
+    @NotNull
     @Size (max = 100)
-    private String clNome;
+    private String clnome;
     @NotBlank
+    @NotNull
     @Size(max = 14)
-    private String CPF;
+    private String cpf;
     @NotBlank
+    @NotNull
     private String senha;
 
 
 
-    public String getClNome() {
-        return clNome;
+    public String getClnome() {
+        return clnome;
     }
-    public void setClNome(String clNome) {
-        this.clNome = clNome;
+    public void setClnome(String clnome) {
+        this.clnome = clnome;
     }
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
     public String getSenha() {
         return senha;
