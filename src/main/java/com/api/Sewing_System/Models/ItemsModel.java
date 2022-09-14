@@ -18,4 +18,7 @@ public class ItemsModel implements Serializable {
     private String quantidadeTotal;
     @Column(nullable = false)
     private double preco;
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private HistoricModel fk_Historic;
 }

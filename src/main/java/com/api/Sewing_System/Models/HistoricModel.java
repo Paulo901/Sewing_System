@@ -13,27 +13,32 @@ public class HistoricModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idHistorico;
- //   @Column(nullable = false)
- //   private LocalDateTime dataCompra;
-    @Column
+    @Column(nullable = false)
+    private LocalDateTime dataCompra;
+    @Column(nullable = false)
     private int quantidade;
-    //fk_itens int not null,
+    @ManyToOne
+    @JoinColumn(name = "fk_Cliente", nullable = false)
+    private ClientModel fk_Clente;
+
     //descontos
-    //fk_Conta int not null,
 
 
-    public UUID getIdHistorico() {
+
+    public ClientModel getFk_Clente() { return fk_Clente; }
+    public void setFk_Clente(ClientModel fk_Clente) { this.fk_Clente = fk_Clente; }
+    public UUID getIdHistoric() {
         return idHistorico;
     }
-    public void setIdHistorico(UUID idHistorico) {
+    public void setIdHistoric(UUID idHistorico) {
         this.idHistorico = idHistorico;
     }
- //   public LocalDateTime getDataCompra() {
- //       return dataCompra;
- //   }
- //   public void setDataCompra(LocalDateTime dataCompra) {
- //       this.dataCompra = dataCompra;
- //   }
+    public LocalDateTime getDataCompra() {
+        return dataCompra;
+    }
+    public void setDataCompra(LocalDateTime dataCompra) {
+        this.dataCompra = dataCompra;
+    }
     public int getQuantidade() {
         return quantidade;
     }

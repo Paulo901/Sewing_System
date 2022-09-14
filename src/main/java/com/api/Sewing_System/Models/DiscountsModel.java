@@ -18,6 +18,7 @@ public class DiscountsModel implements Serializable {
     private double valor;
     @Column(nullable = false)
     private String chaveacesso;
+
 //  fk_Conta int not null,
 
 

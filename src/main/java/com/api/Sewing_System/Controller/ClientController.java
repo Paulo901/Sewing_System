@@ -50,7 +50,7 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).body(clientModelOptional.get() + " deleted successfully");
     }
     @PutMapping("/{idClient}")
-    public ResponseEntity<Object> DeleteClient(@PathVariable(value = "idClient" ) UUID id,
+    public ResponseEntity<Object> updateClient(@PathVariable(value = "idClient" ) UUID id,
                                                @RequestBody @Valid ClientDto clientDto) {
         Optional<ClientModel> clientModelOptional = clientService.findById(id);
         if (!clientModelOptional.isPresent()) {
