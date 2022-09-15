@@ -20,7 +20,7 @@ import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/Historic")
+@RequestMapping("/historic")
 public class HistoricController {
 
     final HistoricService historicService;
@@ -33,10 +33,9 @@ public class HistoricController {
     public ResponseEntity<Object> saveHistoric(@RequestBody @Valid HistoricDto historicDto){
         var historicModel = new HistoricModel();
         BeanUtils.copyProperties(historicDto, historicModel);
-        //historicModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
+        historicModel.setDataCompra(LocalDateTime.now(ZoneId.of("UTC")));
         return ResponseEntity.status(HttpStatus.CREATED).body(historicService.save(historicModel));
         }
-
     @GetMapping
     public ResponseEntity<List<HistoricModel>> getAllHistoric(){
         return ResponseEntity.status(HttpStatus.OK).body(historicService.findAll());

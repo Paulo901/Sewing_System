@@ -1,5 +1,7 @@
 package com.api.Sewing_System.Models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -20,10 +22,8 @@ public class HistoricModel implements Serializable {
     @ManyToOne
     @JoinColumn(name = "fk_Cliente", nullable = false)
     private ClientModel fk_Clente;
-
-    //descontos
-
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_Historico")
+    private DiscountsModel fk_Discontos;
 
     public ClientModel getFk_Clente() { return fk_Clente; }
     public void setFk_Clente(ClientModel fk_Clente) { this.fk_Clente = fk_Clente; }
@@ -45,4 +45,5 @@ public class HistoricModel implements Serializable {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
 }

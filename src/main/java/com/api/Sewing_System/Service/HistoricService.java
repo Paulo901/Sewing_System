@@ -11,24 +11,16 @@ import java.util.UUID;
 
 @Service
 public class HistoricService {
-
-
     final HistoricRepository historicRepository;
+
     public HistoricService(HistoricRepository historicRepository) {
         this.historicRepository = historicRepository;
     }
-
     @Transactional
-    public HistoricModel save(HistoricModel historicModel) {
-        return historicRepository.save(historicModel);
-
-    }
-
+    public HistoricModel save(HistoricModel historicModel) {return historicRepository.save(historicModel);}
     public List<HistoricModel> findAll() {
         return historicRepository.findAll();
     }
-
-
     @Transactional
     public void delete(HistoricModel historicModel) {
         historicRepository.delete(historicModel);

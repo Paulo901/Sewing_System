@@ -1,29 +1,19 @@
-package com.api.Sewing_System.Models;
+package com.api.Sewing_System.dtos;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.UUID;
+import com.api.Sewing_System.Models.HistoricModel;
+import javax.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "TB_Items")
-public class ItemsModel implements Serializable {
-    private static long SerialVersionUID = 1L;
+public class ItemDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idItem;
-    @Column(nullable = false, length = 100)
+    @NotBlank
     private String item;
-    @Column(nullable = false)
+    @NotBlank
     private String quantidadeTotal;
-    @Column(nullable = false)
+    @NotBlank
     private double preco;
-    @ManyToOne
-    @JoinColumn(nullable = false)
+    @NotBlank
     private HistoricModel fk_Historic;
 
-    public UUID getIdItem() {return idItem;}
-    public void setIdItem(UUID idItem) {this.idItem = idItem;}
     public String getItem() {return item;}
     public void setItem(String item) {this.item = item;}
     public String getQuantidadeTotal() {
