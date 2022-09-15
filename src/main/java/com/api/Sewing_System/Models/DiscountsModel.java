@@ -20,7 +20,7 @@ public class DiscountsModel implements Serializable {
     private String chaveacesso;
     @ManyToOne
     @JoinColumn(name = "fk_Historico", nullable = false)
-    private ClientModel fk_Historico;
+    private HistoricModel fk_Historico;
 
     public UUID getIdDesconto() {
         return idDesconto;

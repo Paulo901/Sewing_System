@@ -1,16 +1,12 @@
 package com.api.Sewing_System.Controller;
 
-
-import com.api.Sewing_System.Models.ClientModel;
 import com.api.Sewing_System.Models.HistoricModel;
 import com.api.Sewing_System.Service.HistoricService;
-import com.api.Sewing_System.dtos.ClientDto;
 import com.api.Sewing_System.dtos.HistoricDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -67,6 +63,7 @@ public class HistoricController {
         var historicModel = new HistoricModel();
         BeanUtils.copyProperties(historicDto, historicModel);
         historicModel.setIdHistoric(historicModelOptional.get().getIdHistoric());
+        historicModel.setDataCompra(historicModelOptional.get().getDataCompra());
         return ResponseEntity.status(HttpStatus.OK).body(historicService.save(historicModel));
     }
 }
