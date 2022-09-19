@@ -1,7 +1,10 @@
 package com.api.Sewing_System.Controller;
 
+import com.api.Sewing_System.Models.ClientModel;
 import com.api.Sewing_System.Models.HistoricModel;
+import com.api.Sewing_System.Service.ClientService;
 import com.api.Sewing_System.Service.HistoricService;
+import com.api.Sewing_System.dtos.ClientDto;
 import com.api.Sewing_System.dtos.HistoricDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
@@ -20,14 +23,17 @@ import java.util.UUID;
 public class HistoricController {
 
     final HistoricService historicService;
-
-    public HistoricController (HistoricService historicService) {
+    private ClientService clientService;
+    public HistoricController (HistoricService historicService, ClientService clientService) {
         this.historicService = historicService;
+        this.clientService = clientService;
         }
 
     @PostMapping
-    public ResponseEntity<Object> saveHistoric(@RequestBody @Valid HistoricDto historicDto){
+    public ResponseEntity<Object> saveHistoric(@RequestBody @Valid HistoricDto historicDto) {
+
         var historicModel = new HistoricModel();
+        var client = clientService.findById(historicDto.getFk_Cliente());
         BeanUtils.copyProperties(historicDto, historicModel);
         historicModel.setDataCompra(LocalDateTime.now(ZoneId.of("UTC")));
         return ResponseEntity.status(HttpStatus.CREATED).body(historicService.save(historicModel));
@@ -64,6 +70,7 @@ public class HistoricController {
         BeanUtils.copyProperties(historicDto, historicModel);
         historicModel.setIdHistoric(historicModelOptional.get().getIdHistoric());
         historicModel.setDataCompra(historicModelOptional.get().getDataCompra());
+
         return ResponseEntity.status(HttpStatus.OK).body(historicService.save(historicModel));
     }
 }

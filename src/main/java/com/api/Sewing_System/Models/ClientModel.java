@@ -1,9 +1,11 @@
 package com.api.Sewing_System.Models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
-
 @Entity
 @Table(name = "TB_Client")
 public class ClientModel implements Serializable {
@@ -18,7 +20,10 @@ public class ClientModel implements Serializable {
     private String cpf;
     @Column(nullable = false)
     private String senha;
-
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Column(name = "historicid_id")
+    @JsonProperty("historicModel")
+    private List<HistoricModel> historic = new ArrayList<>();
 
 
     public UUID getIdCliente() {
@@ -30,8 +35,8 @@ public class ClientModel implements Serializable {
     public String getClnome() {
         return clnome;
     }
-    public void setClnome(String clNome) {
-        this.clnome = clNome;
+    public void setClnome(String clnome) {
+        this.clnome = clnome;
     }
     public String getCpf() {
         return cpf;
@@ -44,5 +49,11 @@ public class ClientModel implements Serializable {
     }
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    public List<HistoricModel> getHistoric() {
+        return historic;
+    }
+    public void setHistoric(List<HistoricModel> historic) {
+        this.historic = historic;
     }
 }

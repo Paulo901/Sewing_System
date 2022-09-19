@@ -1,5 +1,7 @@
 package com.api.Sewing_System.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -19,14 +21,14 @@ public class HistoricModel implements Serializable {
     @Column(nullable = false)
     private int quantidade;
     @ManyToOne
-    @JoinColumn(name = "fk_Cliente", nullable = false)
-    private ClientModel fk_Clente;
+    @JsonIgnore
+    private ClientModel client;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_Historico")
     private List<DiscountsModel> fk_Discontos;
 
 
-    public ClientModel getFk_Clente() { return fk_Clente; }
-    public void setFk_Clente(ClientModel fk_Clente) { this.fk_Clente = fk_Clente; }
+    public ClientModel getClient() { return client; }
+    public void setClient(ClientModel client) { this.client = client; }
     public UUID getIdHistoric() {
         return idHistorico;
     }
@@ -45,5 +47,4 @@ public class HistoricModel implements Serializable {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-
 }
