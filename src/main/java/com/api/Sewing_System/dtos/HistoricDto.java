@@ -9,10 +9,10 @@ public class HistoricDto {
     @NotNull
     private int quantidade;
     @NotNull
-    private UUID fk_Cliente;
+    private UUID client;
 
-    public UUID getFk_Cliente(){ return fk_Cliente; }
-    public void setFk_Cliente(UUID fk_Cliente) { this.fk_Cliente = fk_Cliente; }
+    public UUID getCliente(){ return client; }
+    public void setCliente(UUID client) { this.client = client; }
     public int getQuantidade() { return quantidade; }
     public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
 }

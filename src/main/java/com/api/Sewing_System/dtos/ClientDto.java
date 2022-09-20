@@ -1,8 +1,12 @@
 package com.api.Sewing_System.dtos;
 
+import com.api.Sewing_System.Models.HistoricModel;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientDto {
 
@@ -20,7 +24,7 @@ public class ClientDto {
     @NotNull
     private String senha;
 
-
+    private List<HistoricModel> historic = new ArrayList<>();
 
     public String getClnome() {
         return clnome;
@@ -39,5 +43,11 @@ public class ClientDto {
     }
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    public List<HistoricModel> getHistoric() {
+        return historic;
+    }
+    public void setHistoric(HistoricModel historic) {
+        this.historic.add(historic);
     }
 }

@@ -21,11 +21,16 @@ public class HistoricModel implements Serializable {
     @Column(nullable = false)
     private int quantidade;
     @ManyToOne
-    @JsonIgnore
     private ClientModel client;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_Historico")
     private List<DiscountsModel> fk_Discontos;
 
+    public HistoricModel( ClientModel client){
+        //this.quantidade = quantidade;
+        this.client = client;
+    }
+    public HistoricModel(){
+    }
 
     public ClientModel getClient() { return client; }
     public void setClient(ClientModel client) { this.client = client; }

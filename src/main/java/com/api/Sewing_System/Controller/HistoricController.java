@@ -16,6 +16,7 @@ import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import javax.swing.JOptionPane;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -24,6 +25,8 @@ public class HistoricController {
 
     final HistoricService historicService;
     private ClientService clientService;
+
+
     public HistoricController (HistoricService historicService, ClientService clientService) {
         this.historicService = historicService;
         this.clientService = clientService;
@@ -32,10 +35,15 @@ public class HistoricController {
     @PostMapping
     public ResponseEntity<Object> saveHistoric(@RequestBody @Valid HistoricDto historicDto) {
 
-        var historicModel = new HistoricModel();
-        var client = clientService.findById(historicDto.getFk_Cliente());
+        Optional<ClientModel> client = clientService.findById(historicDto.getCliente());
+        historicDto.setCliente(client.get().getIdCliente());
+
+        var historicModel = new HistoricModel(client.get());
+
         BeanUtils.copyProperties(historicDto, historicModel);
         historicModel.setDataCompra(LocalDateTime.now(ZoneId.of("UTC")));
+        historicModel.setClient(client.get());
+        //client.get().setHistoric(historicModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(historicService.save(historicModel));
         }
     @GetMapping

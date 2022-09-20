@@ -53,7 +53,7 @@ public class ClientModel implements Serializable {
     public List<HistoricModel> getHistoric() {
         return historic;
     }
-    public void setHistoric(List<HistoricModel> historic) {
-        this.historic = historic;
+    public void setHistoric(HistoricModel historic) {
+        this.historic.add(historic);
     }
 }
