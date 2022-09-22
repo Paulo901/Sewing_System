@@ -17,10 +17,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "TB_Client")
-public class ClientModel {
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCliente;
+
+    // Attributes <------------------------
 
     @Column(nullable = false, length = 100)
     private String clnome;
@@ -30,11 +32,25 @@ public class ClientModel {
     
     @Column(nullable = false)
     private String senha;
-    
+
+    // Foreign Keys <----------------------
+
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @Column(name = "historicid_id")
-    @JsonProperty("historicModel")
-    private List<HistoricModel> historic = new ArrayList<>();
+    @JsonProperty("historic")
+    private List<Historic> historic = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Column(name = "cart_id")
+    @JsonProperty("cart")
+    private List<Cart> cart = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Column(name = "favorite_id")
+    @JsonProperty("favorites")
+    private List<Favorites> favorites = new ArrayList<>();
+
+    // Methods <---------------------------
 
     public Long getIdCliente() {
         return idCliente;
@@ -68,11 +84,11 @@ public class ClientModel {
         this.senha = senha;
     }
 
-    public List<HistoricModel> getHistoric() {
+    public List<Historic> getHistoric() {
         return historic;
     }
 
-    public void setHistoric(HistoricModel historic) {
+    public void setHistoric(Historic historic) {
         this.historic.add(historic);
     }
 }

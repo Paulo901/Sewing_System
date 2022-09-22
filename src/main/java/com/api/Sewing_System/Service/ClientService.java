@@ -1,6 +1,6 @@
 package com.api.Sewing_System.Service;
 
-import com.api.Sewing_System.Models.ClientModel;
+import com.api.Sewing_System.Models.Client;
 import com.api.Sewing_System.Repositories.ClientRepository;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
@@ -15,21 +15,21 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public Optional<ClientModel> findById(Long id) {
+    public Optional<Client> findById(Long id) {
         return clientRepository.findById(id);
     }
 
-    public List<ClientModel> findAll() {
+    public List<Client> findAll() {
         return clientRepository.findAll();
     }
 
     @Transactional
-    public ClientModel save(ClientModel clientModel) {
+    public Client save(Client clientModel) {
         return clientRepository.save(clientModel);
 
     }
     @Transactional
-    public void delete(ClientModel clientModel) {
+    public void delete(Client clientModel) {
         clientRepository.delete(clientModel);
     }
 }

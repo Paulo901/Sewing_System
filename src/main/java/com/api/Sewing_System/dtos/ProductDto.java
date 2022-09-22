@@ -1,9 +1,9 @@
 package com.api.Sewing_System.dtos;
 
-import com.api.Sewing_System.Models.HistoricModel;
+import com.api.Sewing_System.Models.Historic;
 import javax.validation.constraints.NotBlank;
 
-public class ItemDto {
+public class ProductDto {
 
     @NotBlank
     private String item;
@@ -12,7 +12,7 @@ public class ItemDto {
     @NotBlank
     private double preco;
     @NotBlank
-    private HistoricModel fk_Historic;
+    private Historic fk_Historic;
 
     public String getItem() {return item;}
     public void setItem(String item) {this.item = item;}
@@ -22,8 +22,8 @@ public class ItemDto {
         this.quantidadeTotal = quantidadeTotal;}
     public double getPreco() {return preco;}
     public void setPreco(double preco) {this.preco = preco;}
-    public HistoricModel getFk_Historic() {
+    public Historic getFk_Historic() {
         return fk_Historic;}
-    public void setFk_Historic(HistoricModel fk_Historic) {
+    public void setFk_Historic(Historic fk_Historic) {
         this.fk_Historic = fk_Historic;}
 }

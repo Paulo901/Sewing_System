@@ -1,6 +1,6 @@
 package com.api.Sewing_System.Controller;
 
-import com.api.Sewing_System.Models.ClientModel;
+import com.api.Sewing_System.Models.Client;
 import com.api.Sewing_System.Service.ClientService;
 import com.api.Sewing_System.dtos.ClientDto;
 import org.springframework.beans.BeanUtils;
@@ -23,17 +23,17 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<Object> saveClient(@RequestBody @Valid ClientDto clientDto) {
-        var clientModel = new ClientModel();
+        var clientModel = new Client();
         BeanUtils.copyProperties(clientDto, clientModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(clientService.save(clientModel));
     }
     @GetMapping
-    public ResponseEntity<List<ClientModel>> getAllClient(){
+    public ResponseEntity<List<Client>> getAllClient(){
         return ResponseEntity.status(HttpStatus.OK).body(clientService.findAll());
     }
     @GetMapping("/{idClient}")
     public ResponseEntity<Object> getOneClient(@PathVariable(value = "idClient" ) Long id ) {
-        Optional<ClientModel> clientModelOptional = clientService.findById(id);
+        Optional<Client> clientModelOptional = clientService.findById(id);
         if (!clientModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client Not Found!");
         }
@@ -41,7 +41,7 @@ public class ClientController {
     }
     @DeleteMapping("/{idClient}")
     public ResponseEntity<Object> DeleteClient(@PathVariable(value = "idClient" ) Long id ) {
-        Optional<ClientModel> clientModelOptional = clientService.findById(id);
+        Optional<Client> clientModelOptional = clientService.findById(id);
         if (!clientModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client Not Found!");
         }
@@ -51,11 +51,11 @@ public class ClientController {
     @PutMapping("/{idClient}")
     public ResponseEntity<Object> updateClient(@PathVariable(value = "idClient" ) Long id,
                                                @RequestBody @Valid ClientDto clientDto) {
-        Optional<ClientModel> clientModelOptional = clientService.findById(id);
+        Optional<Client> clientModelOptional = clientService.findById(id);
         if (!clientModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client Not Found!");
         }
-        var clientModel = new ClientModel();
+        var clientModel = new Client();
         BeanUtils.copyProperties(clientDto, clientModel);
         clientModel.setIdCliente(clientModelOptional.get().getIdCliente());
         return ResponseEntity.status(HttpStatus.OK).body(clientService.save(clientModel));

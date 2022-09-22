@@ -1,6 +1,6 @@
 package com.api.Sewing_System.Controller;
 
-import com.api.Sewing_System.Models.DiscountsModel;
+import com.api.Sewing_System.Models.Discounts;
 import com.api.Sewing_System.Service.DiscountsService;
 import com.api.Sewing_System.dtos.DiscountsDto;
 import org.springframework.beans.BeanUtils;
@@ -25,17 +25,17 @@ public class DiscountController {
 
     @PostMapping
     public ResponseEntity<Object> saveDiscount(@RequestBody @Valid DiscountsDto discountsDto){
-        var discountsModel = new DiscountsModel();
+        var discountsModel = new Discounts();
         BeanUtils.copyProperties(discountsDto, discountsModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(discountService.save(discountsModel));
     }
     @GetMapping
-    public ResponseEntity<List<DiscountsModel>> getAllDiscount(){
+    public ResponseEntity<List<Discounts>> getAllDiscount(){
         return ResponseEntity.status(HttpStatus.OK).body(discountService.findAll());
     }
     @GetMapping("/{idDiscount}")
     public ResponseEntity<Object> getOneDiscount(@PathVariable(value = "idDiscount" ) UUID id ) {
-        Optional<DiscountsModel> discountsModelOptional = discountService.findById(id);
+        Optional<Discounts> discountsModelOptional = discountService.findById(id);
         if (!discountsModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Discount Not Found!");
         }
@@ -43,7 +43,7 @@ public class DiscountController {
     }
     @DeleteMapping("/{idDiscount}")
     public ResponseEntity<Object> deleteDiscount(@PathVariable(value = "idDiscount" ) UUID id ) {
-        Optional<DiscountsModel> discountsModelOptional = discountService.findById(id);
+        Optional<Discounts> discountsModelOptional = discountService.findById(id);
         if (!discountsModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Discount Not Found!");
         }
@@ -53,11 +53,11 @@ public class DiscountController {
     @PutMapping("/{idDiscount}")
     public ResponseEntity<Object> updateDiscount(@PathVariable(value = "idDiscount" ) UUID id,
                                                  @RequestBody @Valid DiscountsDto discountsDto) {
-        Optional<DiscountsModel> discountsModelOptional = discountService.findById(id);
+        Optional<Discounts> discountsModelOptional = discountService.findById(id);
         if (!discountsModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Discount Not Found!");
         }
-        var discountsModel = new DiscountsModel();
+        var discountsModel = new Discounts();
         BeanUtils.copyProperties(discountsDto, discountsModel);
         discountsModel.setIdDesconto(discountsModelOptional.get().getIdDesconto());
         return ResponseEntity.status(HttpStatus.OK).body(discountService.save(discountsModel));

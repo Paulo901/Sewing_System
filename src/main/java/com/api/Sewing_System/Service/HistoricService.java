@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.api.Sewing_System.Models.HistoricModel;
+import com.api.Sewing_System.Models.Historic;
 import com.api.Sewing_System.Repositories.HistoricRepository;
 
 @Service
@@ -18,15 +18,15 @@ public class HistoricService {
         this.historicRepository = historicRepository;
     }
     @Transactional
-    public HistoricModel save(HistoricModel historicModel) {return historicRepository.save(historicModel);}
-    public List<HistoricModel> findAll() {
+    public Historic save(Historic historicModel) {return historicRepository.save(historicModel);}
+    public List<Historic> findAll() {
         return historicRepository.findAll();
     }
     @Transactional
-    public void delete(HistoricModel historicModel) {
+    public void delete(Historic historicModel) {
         historicRepository.delete(historicModel);
     }
-    public Optional<HistoricModel> findById(Long id) {
+    public Optional<Historic> findById(Long id) {
         return historicRepository.findById(id);
     }
 

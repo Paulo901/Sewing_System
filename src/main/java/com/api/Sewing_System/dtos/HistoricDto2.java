@@ -2,7 +2,7 @@ package com.api.Sewing_System.dtos;
 
 import javax.validation.constraints.NotNull;
 
-public class HistoricDto {
+public class HistoricDto2 {
     @NotNull
     private int quantidade;
     @NotNull

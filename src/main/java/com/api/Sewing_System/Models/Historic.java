@@ -1,55 +1,62 @@
 package com.api.Sewing_System.Models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import com.api.Sewing_System.dtos.HistoricDto;
+import com.api.Sewing_System.dtos.HistoricDto2;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "TB_Historic")
-public class HistoricModel {
+@Table(name = "TB_HISTORIC")
+public class Historic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idHistorico;
-    
+
+    // Attributes <------------------------
+
     @Column(nullable = false)
     private LocalDateTime dataCompra;
     
     @Column(nullable = false)
     private int quantidade;
-    
+
+    // Foreign Keys <----------------------
+
     @ManyToOne
     @JsonIgnore
-    private ClientModel client;
+    private Client client;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_Historico")
-    private List<DiscountsModel> fk_Discontos;
+    @OneToMany(mappedBy = "historic", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Column(name = "discount_id")
+    @JsonProperty("discount")
+    private List<Discounts> discounts = new ArrayList<>();
 
-    public HistoricModel(HistoricDto dto, ClientModel client) {
+    @OneToMany(mappedBy = "historic", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Column(name = "product_id")
+    @JsonProperty("product")
+    private List<Products> product = new ArrayList<>();
+
+    // Methods <---------------------------
+
+    public Historic(HistoricDto2 dto, Client client) {
         this.dataCompra = LocalDateTime.now();
         this.quantidade = dto.getQuantidade();
         this.client = client;
     }
 
-    public HistoricModel() {
+    public Historic() {
     }
 
-    public ClientModel getClient() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClient(ClientModel client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 

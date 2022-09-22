@@ -1,5 +1,7 @@
 package com.api.Sewing_System.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -13,11 +15,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_Discounts")
-public class DiscountsModel {
+public class Discounts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idDesconto;
-    
+
+    // Attributes <------------------------
+
     @Column(nullable = false, length = 100)
     private String tipoDesconto;
     
@@ -26,10 +30,14 @@ public class DiscountsModel {
     
     @Column(nullable = false)
     private String chaveacesso;
-    
+
+    // Foreign Keys <----------------------
+
     @ManyToOne
-    @JoinColumn(name = "fk_Historico", nullable = false)
-    private HistoricModel fk_Historico;
+    @JsonIgnore
+    private Historic historic;
+
+    // Methods <---------------------------
 
     public UUID getIdDesconto() {
         return idDesconto;

@@ -3,7 +3,7 @@ package com.api.Sewing_System.dtos;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.api.Sewing_System.Models.HistoricModel;
+import com.api.Sewing_System.Models.Historic;
 
 public class DiscountsDto {
 
@@ -18,7 +18,7 @@ public class DiscountsDto {
     private String chaveacesso;
     @NotBlank
     @NotNull
-    private HistoricModel fk_Historico;
+    private Historic fk_Historico;
 
     public String getTipoDesconto() {
         return tipoDesconto;
