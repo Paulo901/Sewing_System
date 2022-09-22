@@ -1,13 +1,14 @@
 package com.api.Sewing_System.Service;
 
-import com.api.Sewing_System.Models.ClientModel;
-import com.api.Sewing_System.Models.HistoricModel;
-import com.api.Sewing_System.Repositories.HistoricRepository;
-import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.api.Sewing_System.Models.HistoricModel;
+import com.api.Sewing_System.Repositories.HistoricRepository;
 
 @Service
 public class HistoricService {
@@ -25,7 +26,7 @@ public class HistoricService {
     public void delete(HistoricModel historicModel) {
         historicRepository.delete(historicModel);
     }
-    public Optional<HistoricModel> findById(UUID id) {
+    public Optional<HistoricModel> findById(Long id) {
         return historicRepository.findById(id);
     }
 

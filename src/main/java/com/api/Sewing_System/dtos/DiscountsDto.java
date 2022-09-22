@@ -1,14 +1,9 @@
 package com.api.Sewing_System.dtos;
 
-import com.api.Sewing_System.Models.ClientModel;
-import com.api.Sewing_System.Models.HistoricModel;
-
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
+
+import com.api.Sewing_System.Models.HistoricModel;
 
 public class DiscountsDto {
 

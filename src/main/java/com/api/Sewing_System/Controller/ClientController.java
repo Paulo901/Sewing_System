@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -33,7 +32,7 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).body(clientService.findAll());
     }
     @GetMapping("/{idClient}")
-    public ResponseEntity<Object> getOneClient(@PathVariable(value = "idClient" ) UUID id ) {
+    public ResponseEntity<Object> getOneClient(@PathVariable(value = "idClient" ) Long id ) {
         Optional<ClientModel> clientModelOptional = clientService.findById(id);
         if (!clientModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client Not Found!");
@@ -41,7 +40,7 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).body(clientModelOptional.get());
     }
     @DeleteMapping("/{idClient}")
-    public ResponseEntity<Object> DeleteClient(@PathVariable(value = "idClient" ) UUID id ) {
+    public ResponseEntity<Object> DeleteClient(@PathVariable(value = "idClient" ) Long id ) {
         Optional<ClientModel> clientModelOptional = clientService.findById(id);
         if (!clientModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client Not Found!");
@@ -50,7 +49,7 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).body(clientModelOptional.get() + " deleted successfully");
     }
     @PutMapping("/{idClient}")
-    public ResponseEntity<Object> updateClient(@PathVariable(value = "idClient" ) UUID id,
+    public ResponseEntity<Object> updateClient(@PathVariable(value = "idClient" ) Long id,
                                                @RequestBody @Valid ClientDto clientDto) {
         Optional<ClientModel> clientModelOptional = clientService.findById(id);
         if (!clientModelOptional.isPresent()) {
