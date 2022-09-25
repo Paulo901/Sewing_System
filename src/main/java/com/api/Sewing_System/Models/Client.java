@@ -22,7 +22,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCliente;
 
-    // Attributes <------------------------
+// Attributes <------------------------
 
     @Column(nullable = false, length = 100)
     private String clnome;
@@ -33,24 +33,24 @@ public class Client {
     @Column(nullable = false)
     private String senha;
 
-    // Foreign Keys <----------------------
+// Foreign Keys <----------------------
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @Column(name = "historicid_id")
     @JsonProperty("historic")
     private List<Historic> historic = new ArrayList<>();
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @Column(name = "cart_id")
     @JsonProperty("cart")
     private List<Cart> cart = new ArrayList<>();
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "clientf", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @Column(name = "favorite_id")
     @JsonProperty("favorites")
     private List<Favorites> favorites = new ArrayList<>();
 
-    // Methods <---------------------------
+// Methods <---------------------------
 
     public Long getIdCliente() {
         return idCliente;

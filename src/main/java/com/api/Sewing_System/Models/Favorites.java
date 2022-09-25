@@ -14,7 +14,8 @@ public class Favorites {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    // Attributes <------------------------
+// Attributes <------------------------
+
     /**
      * pode ser null
      * private  ProductDetails productDetails;
@@ -24,13 +25,14 @@ public class Favorites {
      *
      */
 
-    // Foreign Keys <----------------------
+// Foreign Keys <----------------------
+
     @ManyToMany
     private List<Products> product = new ArrayList<>();
 
     @ManyToOne
     @JsonIgnore
-    private Client client;
+    private Client clientf;
 
-    // Methods <---------------------------
+// Methods <---------------------------
 }

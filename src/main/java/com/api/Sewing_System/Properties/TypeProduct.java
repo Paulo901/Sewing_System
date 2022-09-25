@@ -1,4 +1,4 @@
-package com.api.Sewing_System.Models;
+package com.api.Sewing_System.Properties;
 
 public enum TypeProduct {
 

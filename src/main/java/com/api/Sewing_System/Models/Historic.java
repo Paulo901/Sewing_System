@@ -17,36 +17,35 @@ public class Historic {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idHistorico;
 
-    // Attributes <------------------------
+// Attributes <------------------------
 
     @Column(nullable = false)
     private LocalDateTime dataCompra;
     
-    @Column(nullable = false)
-    private int quantidade;
+
     /**
      * DEVE SER NOT NULL
      * private  ProductDetails productDetails;
      *
      */
 
-    // Foreign Keys <----------------------
+// Foreign Keys <----------------------
 
     @ManyToOne
     @JsonIgnore
     private Client client;
     
-    @OneToMany(mappedBy = "historic", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "historic", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @Column(name = "discount_id")
     @JsonProperty("discount")
     private List<Discounts> discounts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "historic", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "historic", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @Column(name = "product_id")
     @JsonProperty("product")
     private List<Products> product = new ArrayList<>();
 
-    // Methods <---------------------------
+// Methods <---------------------------
 
     public Historic(HistoricDto2 dto, Client client) {
         this.dataCompra = LocalDateTime.now();

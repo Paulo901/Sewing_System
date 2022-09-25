@@ -1,54 +1,55 @@
 package com.api.Sewing_System.Models;
 
+import com.api.Sewing_System.Properties.TypeProduct;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "TB_Items")
+@Table(name = "TB_PRODUCT")
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    // Attributes <------------------------
+// Attributes <------------------------
 
-    @Column(nullable = false, length = 100)
+//    @Column(nullable = false, length = 100)
+//    private TypeProduct typeProduct;
+//
+//    @Column(nullable = false, length = 100)
+//    private Size size;
+
+    @Column
     private TypeProduct typeProduct;
-
-    @Column(nullable = false, length = 100)
-    private Size size;
-
-    @Column(nullable = false)
-    private String totalAmount;
-
     @Column(nullable = false)
     private double price;
 
+    @Column
+    private String descrição;
 
+    @Column
+    private String imagem;
+    //deve receber um link
 
-    //imagem
-    //descrição
-
-    // Foreign Keys <----------------------
+// Foreign Keys <----------------------
 
     @ManyToOne
     @JsonIgnore
     private Historic historic;
 
-    @ManyToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @ManyToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JsonIgnore
     private List<Cart> cart = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @ManyToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JsonIgnore
     private List<Favorites> favorites = new ArrayList<>();
 
-    // Methods <---------------------------
+// Methods <---------------------------
 
     public Long getId() {
         return id;
@@ -66,13 +67,6 @@ public class Products {
         this.typeProduct = typeProduct;
     }
 
-    public String getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(String totalAmount) {
-        this.totalAmount = totalAmount;
-    }
 
     public double getPrice() {
         return price;

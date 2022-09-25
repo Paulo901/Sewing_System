@@ -13,7 +13,8 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    // Attributes <------------------------
+
+// Attributes <------------------------
 
     /**
      * pode ser null
@@ -24,7 +25,8 @@ public class Cart {
      *
      */
 
-    // Foreign Keys <----------------------
+// Foreign Keys <----------------------
+
     @ManyToMany
     private List<Products> product = new ArrayList<>();
 
@@ -32,5 +34,6 @@ public class Cart {
     @JsonIgnore
     private Client client;
 
-    // Methods <---------------------------
+// Methods <---------------------------
+
 }

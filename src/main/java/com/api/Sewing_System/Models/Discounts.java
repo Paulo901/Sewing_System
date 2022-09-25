@@ -20,7 +20,7 @@ public class Discounts {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idDesconto;
 
-    // Attributes <------------------------
+// Attributes <------------------------
 
     @Column(nullable = false, length = 100)
     private String tipoDesconto;
@@ -31,13 +31,13 @@ public class Discounts {
     @Column(nullable = false)
     private String chaveacesso;
 
-    // Foreign Keys <----------------------
+// Foreign Keys <----------------------
 
     @ManyToOne
     @JsonIgnore
     private Historic historic;
 
-    // Methods <---------------------------
+// Methods <---------------------------
 
     public UUID getIdDesconto() {
         return idDesconto;
