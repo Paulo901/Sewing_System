@@ -24,6 +24,11 @@ public class Historic {
     
     @Column(nullable = false)
     private int quantidade;
+    /**
+     * DEVE SER NOT NULL
+     * private  ProductDetails productDetails;
+     *
+     */
 
     // Foreign Keys <----------------------
 

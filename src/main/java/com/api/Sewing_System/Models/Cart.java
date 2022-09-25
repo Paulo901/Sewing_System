@@ -15,6 +15,15 @@ public class Cart {
     private Long id;
     // Attributes <------------------------
 
+    /**
+     * pode ser null
+     * private  ProductDetails productDetails;
+     *
+     * // Tem que desfazer a tabela ao fazer a compra(add em historic)
+     *
+     *
+     */
+
     // Foreign Keys <----------------------
     @ManyToMany
     private List<Products> product = new ArrayList<>();

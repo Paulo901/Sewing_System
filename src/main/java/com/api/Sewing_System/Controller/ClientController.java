@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/Client")
+@RequestMapping("/client")
 public class ClientController {
 
     final ClientService clientService;

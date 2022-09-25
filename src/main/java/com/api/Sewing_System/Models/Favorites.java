@@ -15,6 +15,14 @@ public class Favorites {
     private Long id;
 
     // Attributes <------------------------
+    /**
+     * pode ser null
+     * private  ProductDetails productDetails;
+     *
+     *
+     *
+     *
+     */
 
     // Foreign Keys <----------------------
     @ManyToMany

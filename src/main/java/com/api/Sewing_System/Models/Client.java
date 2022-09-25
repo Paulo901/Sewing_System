@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "TB_Client")
+@Table(name = "TB_CLIENT")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

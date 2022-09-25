@@ -22,11 +22,17 @@ public class Products {
 
     @Column(nullable = false, length = 100)
     private Size size;
+
     @Column(nullable = false)
     private String totalAmount;
-    
+
     @Column(nullable = false)
     private double price;
+
+
+
+    //imagem
+    //descrição
 
     // Foreign Keys <----------------------
 
