@@ -1,8 +1,6 @@
 # Sewing_System
-
-neste projeto, o objetivo é atender às demandas de uma empresa que oferece serviços de costura e uma loja interna de roupas. 
-
-## Instalação & Configuração
+Este projeto visa um aumento de conhecimento pessoal em Java, nele será construida uma empresa e loja fictícias onde a empresa oferecerá serviços de costura, e a loja, alocada dentro dessa empresa, fará vendas de roupas.
+## Instalação & Configurando
 
  - este programa foi feito em Java, utilizando-se de uma IDE de sua preferência (Recomendo IntelliJ IDEA), mas que suporta a linguagem, adicione o plugin de Java
  - configure seu SDK para Java 8 ou superior.
@@ -14,6 +12,12 @@ neste projeto, o objetivo é atender às demandas de uma empresa que oferece ser
 
 ## Links
 - https://github.com/LuizProgrammer/Site -> Luiz
-- https://www.figma.com/file/bYybuL80LFBYjxW2BU6Mnu/MODIFICADA-LOJA-DE-COSTURA?node-id=0%3A1 -> Ingrid
+- https://figma.fun/rlF3dQ -> Ingrid
 - https://github.com/Isaac-Sousa -> Isaac
 - https://www.jetbrains.com/idea/ -> IDE mod
+
+## Developing
+```bash
+git clone https://github.com/Paulo901/Sewing_System.git
+cd Sewing_System/
+```
