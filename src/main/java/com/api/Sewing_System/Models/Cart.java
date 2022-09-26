@@ -1,5 +1,6 @@
 package com.api.Sewing_System.Models;
 
+import com.api.Sewing_System.Properties.product.ProductDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -16,13 +17,11 @@ public class Cart {
 
 // Attributes <------------------------
 
-    /**
-     * pode ser null
-     * private  ProductDetails productDetails;
-     *
-     * // Tem que desfazer a tabela ao fazer a compra(add em historic)
-     *
-     *
+
+    @Column(nullable = true)
+    private ProductDetails productDetails;
+     /**
+     * Tem que desfazer a tabela ao fazer a compra(add em historic)
      */
 
 // Foreign Keys <----------------------

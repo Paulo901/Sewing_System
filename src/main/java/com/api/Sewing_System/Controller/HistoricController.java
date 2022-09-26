@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import com.api.Sewing_System.dtos.HistoricDto2;
+import com.api.Sewing_System.dtos.HistoricDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +39,7 @@ public class HistoricController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> saveHistoric(@RequestBody @Valid HistoricDto2 historicDto) {
+    public ResponseEntity<Object> saveHistoric(@RequestBody @Valid HistoricDto historicDto) {
         Optional<Client> client = clientService.findById(historicDto.getClient());
         
         if (client.isPresent()) {
@@ -78,7 +78,7 @@ public class HistoricController {
 
     @PutMapping("/{idHistoric}")
     public ResponseEntity<Object> updateHistoric(@PathVariable(value = "idHistoric") Long id,
-            @RequestBody @Valid HistoricDto2 historicDto) {
+            @RequestBody @Valid HistoricDto historicDto) {
         Optional<Historic> historicModelOptional = historicService.findById(id);
         if (!historicModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("HIstoric Not Found!");

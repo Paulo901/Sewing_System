@@ -1,5 +1,6 @@
 package com.api.Sewing_System.Models;
 
+import com.api.Sewing_System.Properties.product.ProductDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -16,14 +17,8 @@ public class Favorites {
 
 // Attributes <------------------------
 
-    /**
-     * pode ser null
-     * private  ProductDetails productDetails;
-     *
-     *
-     *
-     *
-     */
+    @Column(nullable = true)
+    private ProductDetails productDetails;
 
 // Foreign Keys <----------------------
 
@@ -32,7 +27,8 @@ public class Favorites {
 
     @ManyToOne
     @JsonIgnore
-    private Client clientf;
+    private Client client;
 
 // Methods <---------------------------
+
 }

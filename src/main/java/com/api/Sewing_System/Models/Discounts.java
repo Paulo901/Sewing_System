@@ -1,5 +1,6 @@
 package com.api.Sewing_System.Models;
 
+import com.api.Sewing_System.Properties.discounts.DiscountType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.UUID;
@@ -18,18 +19,18 @@ import javax.persistence.Table;
 public class Discounts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idDesconto;
+    private Long id;
 
 // Attributes <------------------------
 
     @Column(nullable = false, length = 100)
-    private String tipoDesconto;
+    private DiscountType discountType;
     
     @Column(nullable = false)
-    private double valor;
+    private double value;
     
     @Column(nullable = false)
-    private String chaveacesso;
+    private String accessKey;
 
 // Foreign Keys <----------------------
 
@@ -39,35 +40,5 @@ public class Discounts {
 
 // Methods <---------------------------
 
-    public UUID getIdDesconto() {
-        return idDesconto;
-    }
 
-    public void setIdDesconto(UUID idDesconto) {
-        this.idDesconto = idDesconto;
-    }
-
-    public String getTipoDesconto() {
-        return tipoDesconto;
-    }
-
-    public void setTipoDesconto(String tipoDesconto) {
-        this.tipoDesconto = tipoDesconto;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    public String getChaveacesso() {
-        return chaveacesso;
-    }
-
-    public void setChaveacesso(String chaveacesso) {
-        this.chaveacesso = chaveacesso;
-    }
 }

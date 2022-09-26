@@ -18,20 +18,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 @Table(name = "TB_CLIENT")
 public class Client {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idCliente;
+    private Long id;
 
 // Attributes <------------------------
 
     @Column(nullable = false, length = 100)
-    private String clnome;
+    private String name;
     
+    @Column(nullable = false, unique = true)
+    private String email;
+
     @Column(nullable = false, unique = true, length = 14)
     private String cpf;
     
     @Column(nullable = false)
-    private String senha;
+    private String password;
 
 // Foreign Keys <----------------------
 
@@ -52,43 +56,4 @@ public class Client {
 
 // Methods <---------------------------
 
-    public Long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public String getClnome() {
-        return clnome;
-    }
-
-    public void setClnome(String clnome) {
-        this.clnome = clnome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public List<Historic> getHistoric() {
-        return historic;
-    }
-
-    public void setHistoric(Historic historic) {
-        this.historic.add(historic);
-    }
 }
