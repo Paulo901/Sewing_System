@@ -11,4 +11,4 @@ neste projeto, o objetivo é atender às demandas de uma empresa que oferece ser
 ## Outras Atribuições
 
  - Este programa é referente ao back do sistema. O front está sendo desenvolvido em -> https://github.com/LuizProgrammer/Site <-
-  
+ - Um planejamento geral do site -> https://www.figma.com/file/bYybuL80LFBYjxW2BU6Mnu/MODIFICADA-LOJA-DE-COSTURA?node-id=0%3A1 <- 
