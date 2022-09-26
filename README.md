@@ -16,4 +16,4 @@ neste projeto, o objetivo é atender às demandas de uma empresa que oferece ser
 - https://github.com/LuizProgrammer/Site -> Luiz
 - https://www.figma.com/file/bYybuL80LFBYjxW2BU6Mnu/MODIFICADA-LOJA-DE-COSTURA?node-id=0%3A1 -> Ingrid
 - https://github.com/Isaac-Sousa -> Isaac
-- https://www.jetbrains.com/idea/ -> IDE
+- https://www.jetbrains.com/idea/ -> IDE mod
