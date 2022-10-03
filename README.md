@@ -11,7 +11,7 @@ Este projeto visa um aumento de conhecimento pessoal em Java, nele será constru
 - Mock-up do projeto por Ingrid
 
 ## Links
-- https://github.com/LuizProgrammer/Site -> Luiz
+- https://github.com/LuizProgrammer -> Luiz
 - https://figma.fun/rlF3dQ -> Ingrid
 - https://github.com/Isaac-Sousa -> Isaac
 - https://www.jetbrains.com/idea/ -> IDE mod
