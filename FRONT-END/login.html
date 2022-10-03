@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>login</title>
+    <script type="text/javascript" src="script/usuario.js"defer></script>
+    <script type="text/javascript" src="script/login.js" defer></script>
+  </head>
+  <body>
+    <form class="form">
+      <label for="name">Nome</label>
+      <input class="name" type="text" name="name">
+      <label for="name">Senha</label>
+      <input class="password" type="text" name="name" >
+      <input type="submit" onclick="ul.logar()" value="entrar">
+    </form>
+    <script>
+      let form = document.querySelector(".form");
+      form.addEventListener("submit",function(event) {
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>
