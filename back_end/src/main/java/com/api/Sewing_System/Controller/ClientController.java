@@ -44,10 +44,10 @@ public class ClientController {
     public ResponseEntity<Object> getClientByEmail(@PathVariable(value = "email" ) String email,
                                                    @PathVariable(value = "password") String password) {
         Stream<Client> clientModelStream = clientService.findByEmail(email);
-        Optional<Client> clientModelOptional = clientModelStream.findFirst();
+        Optional<Client> clientModelOptional = clientModelStream.findAny();
 
         if (!clientModelOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client Not Found!");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client Not Found!" + clientModelOptional);
         }
         clientService.validation(clientModelOptional.get(), password);
         return ResponseEntity.status(HttpStatus.OK).body(clientModelOptional.get());

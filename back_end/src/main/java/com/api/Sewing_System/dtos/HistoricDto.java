@@ -25,6 +25,7 @@ public class HistoricDto {
     @NotNull
     private Long client;
 
+    @NotNull
     private List<Long> discounts = new ArrayList<>();
 
     @NotNull
