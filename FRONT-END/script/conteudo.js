@@ -2,12 +2,37 @@ class Conteudo {
   constructor() {
 }
 
-nomeUsuario(){
-  let user = JSON.parse(localStorage.getItem("user"));
-  let nome = user._name;
+dadosUsuario(){
+  let id = JSON.parse(localStorage.getItem("user"));
+  //let nome = user._name;
+  let user = new XMLHttpRequest();
+  user.onload = function() {
+    let objuser = JSON.parse(user.response);
+    let userlog = new Usuario(objuser.id, objuser.name, objuser.email, objuser.phone, objuser.username, objuser.address, objuser.company);
+    let tgName = document.querySelector(".userName");
+    tgName.innerText = userlog.getName();
+  }
+  user.open("GET","https://jsonplaceholder.typicode.com/users/"+id);
+  user.send();
 
-  let tgName = document.querySelector(".userName");
-  tgName.innerText = nome;
+}
+
+historico(historico){
+
+    let tbody = document.getElementById('tbody');
+
+    for(let i = 0; i < historico.length; i++){
+
+        let linha = tbody.insertRow();
+
+        let dta = linha.insertCell();
+        let items = linha.insertCell();
+        let valor = linha.insertCell();
+
+        dta.innerText = historico[i].quantidade;
+        items.innerText = historico[i].item;
+        valor.innerText = historico[i].valor;
+    }
 }
 
 maisVendidos(){
@@ -54,4 +79,4 @@ maisVendidos(){
 }
 
 let ct = new Conteudo();
-ct.nomeUsuario();
+ct.dadosUsuario();
