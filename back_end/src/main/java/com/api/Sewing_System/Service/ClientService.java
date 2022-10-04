@@ -19,17 +19,16 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public void validation(Client client, String password){
-        if (client.getPassword() == password){
-            return;
+    public void validation(Optional<Client> client, String password){
+        if (client.get().getPassword() == password){
+
         }
         throw new WrongData("Senha Incorreta");
     }
 
-    public Stream<Client> findByEmail(String email) {
-        return clientRepository.findAll().stream()
-                .filter(client -> client.getEmail() == email);
-
+    public Optional<Stream<Client>> findByEmail(String email) {
+        return Optional.of(clientRepository.findAll().stream()
+                .filter(client -> client.getEmail() == email));
     }
 
     public Optional<Client> findById(Long id) {
