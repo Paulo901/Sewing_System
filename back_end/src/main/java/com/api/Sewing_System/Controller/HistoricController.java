@@ -58,8 +58,8 @@ public class HistoricController {
 
             var historic = new Historic(historicDto, client.get(), product.get()
                     ,discounts, historicService.selectState(historicDto.getState()));
-//            historic.setTotalPay(new PaymentCalculator(product.get().getPrice(), historicService.selectState(historicDto.getState()))
-//                    .totalToPay(discounts));
+            historic.setTotalPay(new PaymentCalculator(product.get().getPrice(), historicService.selectState(historicDto.getState()))
+                    .totalToPay(discounts));
 
 //            client.get().getCart().;
 

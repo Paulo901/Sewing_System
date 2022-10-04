@@ -98,13 +98,13 @@ public class Historic {
         this.totalPay = totalPay;
     }
 
-//    public ProductDetails getProductDetails() {
-//        return productDetails;
-//    }
-//
-//    public void setProductDetails(ProductDetails productDetails) {
-//        this.productDetails = productDetails;
-//    }
+    public ProductDetails getProductDetails() {
+        return productDetails;
+    }
+
+    public void setProductDetails(ProductDetails productDetails) {
+        this.productDetails = productDetails;
+    }
 
     public Products getProduct() {
         return product;

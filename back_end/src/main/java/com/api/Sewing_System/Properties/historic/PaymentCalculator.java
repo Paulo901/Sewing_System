@@ -9,32 +9,39 @@ public class PaymentCalculator {
 
     public PaymentCalculator(Double price, State state){
         this.price = price;
-        this.state = state;
+        this.freightValue = freightCalculation(state) * 1.5;
     }
 
 // ------------------------------------
 
     private Double price;
-    private State state;
-    private Double freightValue = freightCalculation() * 1.5;
+
+    private Double discounts;
+
+    private Double freightValue;
 
 // Methods <---------------------------
 
     public Double totalToPay(List<Discounts> discounts){
-        return (price + freightValue) / DiscountsCalculation(discounts).getAsDouble();
+        return (price + freightValue)/ DiscountsCalculation(discounts);
     }
 
-    public OptionalDouble DiscountsCalculation(List<Discounts> discounts){
+    public Double DiscountsCalculation(List<Discounts> discounts){
         if (discounts != null) {
             return discounts.stream()
                      .mapToDouble(Discounts::getDiscountValue)
-                     .average();
+                     .average().getAsDouble();
 
+
+//            if (discounts != null) {
+//                discounts.forEach(discounts ->
+//                        discounts.i;
+//            }
         }
-        return OptionalDouble.of(1);
+        return Double.valueOf(1);
     }
 
-    public Double freightCalculation(){
+    public Double freightCalculation(State state){
 
         switch (state){
             case AC -> {return 14.0;}
