@@ -34,7 +34,7 @@ public class Cart {
 
     @ManyToOne
     private ProductDetails productDetails;
-//Tem que desfazer a tabela ao fazer a compra(add em historic)
+//Tem que desfazer a tabela ao fazer a compra(add em historic).
 
     @ManyToOne
     private Products product;
