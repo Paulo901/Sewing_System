@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Landing page
+  </title>
+
+  <!-- icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" type="text/css" href="css/estiloCostura.css">
+  <script src="script\usuario.js" defer></script>
+  <script src="script\conteudo.js" defer></script>
+</head>
+<body>
+  <header>
+    <a class="usuario" href="#home">Olá, <span id="nomeUsuario"></span></a>
+    <i id="menu-op" class="material-symbols-outlined">menu_open</i>
+    <nav>
+      <span id="menu-cl" class="material-symbols-outlined">menu_open</span>
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#historico">Historicos</a></li>
+      </ul>
+      <a class="sair" href="indexCostura.html">Sair</a>
+
+    </nav>
+  </header>
+  <section id="home" class="home">
+    <article class="content-home">
+
+    </article>
+  </section>
+
+  <section id="produtos" class="produtos">
+    <article class="content-produto">
+      <div class="maisVendidos">
+
+      </div>
+      <div class="maisVendidos">
+
+      </div>
+    </article>
+  </section>
+
+
+    <section id="historico" class="historico">
+      <div class="area_servico">
+
+        <div class="text_servico">
+
+        </div>
+
+        <table id="historico">
+          <thead>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Tipo</th>
+          </thead>
+          <tbody id="tbody">
+
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+
+    <script>
+document.getElementById('nomeUsuario').innerText = localStorage.getItem("usuario");
+    </script>
+  </body>
+  </html>

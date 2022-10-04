@@ -1,27 +1,38 @@
 class Conteudo {
   constructor() {
+    this.userDatas();
 }
 
-dadosUsuario(){
+userDatas(){
+
+
   let id = JSON.parse(localStorage.getItem("user"));
-  //let nome = user._name;
+
   let user = new XMLHttpRequest();
   user.onload = function() {
+
     let objuser = JSON.parse(user.response);
     let userlog = new Usuario(objuser.id, objuser.name, objuser.email, objuser.phone, objuser.username, objuser.address, objuser.company);
-    let tgName = document.querySelector(".userName");
-    tgName.innerText = userlog.getName();
+
+    ct.userName(userlog.getUsername());
+    ct.historico(userlog.getCompany());
+    console.log(userlog.getCompany());
   }
   user.open("GET","https://jsonplaceholder.typicode.com/users/"+id);
   user.send();
 
 }
 
+userName(name){
+  let tgName = document.querySelector("#nomeUsuario");
+  tgName.innerText = name;
+}
+
 historico(historico){
 
-    let tbody = document.getElementById('tbody');
+    let tbody = document.querySelector('#tbody');
 
-    for(let i = 0; i < historico.length; i++){
+    //for(let i = 0; i < historico.length; i++){
 
         let linha = tbody.insertRow();
 
@@ -29,10 +40,10 @@ historico(historico){
         let items = linha.insertCell();
         let valor = linha.insertCell();
 
-        dta.innerText = historico[i].quantidade;
-        items.innerText = historico[i].item;
-        valor.innerText = historico[i].valor;
-    }
+        dta.innerText = historico.bs;
+        items.innerText = historico.catchPhrase;
+        valor.innerText = historico.name;
+    //}
 }
 
 maisVendidos(){
@@ -45,28 +56,28 @@ maisVendidos(){
 
     for(let i = 0; i < itens.length; i++){
 
-    //abaixo conteúdo dinâmico
-    const card = document.createElement("div");
-    card.id = "card";
+      //abaixo conteúdo dinâmico
+      const card = document.createElement("div");
+      card.id = "card";
 
-    const img = document.createElement("div");
-    const descricao = document.createElement("p");
-    const valor = document.createElement("cite");
+      const img = document.createElement("div");
+      const descricao = document.createElement("p");
+      const valor = document.createElement("cite");
 
-    //inserindo valores JSON
-    img.innerText = itens[i].id ;
-    descricao.innerText = itens[i].title ;
-    valor.innerText = itens[i].url ;
-    //inserindo valores JSON
+      //inserindo valores JSON
+      img.innerText = itens[i].id ;
+      descricao.innerText = itens[i].title ;
+      valor.innerText = itens[i].url ;
+      //inserindo valores JSON
 
-    card.appendChild(img);
-    card.appendChild(descricao);
-    card.appendChild(valor);
+      card.appendChild(img);
+      card.appendChild(descricao);
+      card.appendChild(valor);
 
-    const main = document.getElementById("vendidos");
+      const main = document.getElementById("vendidos");
 
-    main.appendChild(card);
-    //acima conteúdo dinâmico
+      main.appendChild(card);
+      //acima conteúdo dinâmico
     }
   }
 
@@ -74,9 +85,7 @@ maisVendidos(){
 
   mv.send();
 
-
-}
+ }
 }
 
 let ct = new Conteudo();
-ct.dadosUsuario();

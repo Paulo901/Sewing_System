@@ -62,7 +62,7 @@ class Login{
                       let usuario = new Usuario(logJson[i].id,logJson[i].name,logJson[i].email,logJson[i].phone,logJson[i].username,logJson[i].address,logJson[i].company);
                       localStorage.setItem("user", JSON.stringify(usuario.getId()));
                       status = "encontrado";
-                      location.href = "usuario.html";
+                      location.href = "indexUsuario.html";
                   }
                   if(this.status == "encontrado") {
 

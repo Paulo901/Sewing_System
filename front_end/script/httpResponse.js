@@ -33,13 +33,18 @@ class httpMetodos {
     usr.onload = function() {
       let getobj = JSON.parse(usr.response);
 
-      console.log(getobj);
+
       console.log(usr);
+      this.teste(getobj);
     }
 
     usr.open("GET","https://jsonplaceholder.typicode.com/todos/1/users");
 
     usr.send();
+  }
+
+  teste(usr){
+    console.log(usr);
   }
 
 }

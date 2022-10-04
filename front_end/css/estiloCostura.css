@@ -1,0 +1,279 @@
+.form@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Pacifico&display=swap');
+
+:root{
+
+  --bg-color: #FAF5FA;
+  --sombra: #7A787A;
+  --preto: #414041;
+
+  --font-text: 'Poppins', sans-serif;
+  --font-logo: 'Pacifico', cursive;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: var(--font-text);
+}
+body{
+  height: 100vh;
+  background-image: url("background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  scroll-behavior: smooth;
+}
+
+/* Logo */
+.logo{
+  font-family: var(--font-logo);
+  font-weight: 900;
+  color: purple;
+  text-decoration: underline dashed;
+  text-decoration-thickness: 3px;
+  -webkit-ext-decoration-thickness: 3px;
+  white-space: nowrap;
+}
+.logo > i{
+  vertical-align: sub;
+  font-size: .8em;
+}
+
+/* abaixo segue codigos de estilização do header*/
+header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 5vw;
+  box-shadow: 0 3px 7px gray;
+  background: rgba(255, 255, 255, 0.6);
+}
+header > a:nth-child(1){
+  font-size: 2em;
+  line-height: 0;
+}
+#menu-op{display: none;}
+#menu-cl{display: none;}
+nav{display: flex;justify-content: space-between; align-items: center;}
+.menu{
+  display: flex;
+  align-items: center;
+  margin: 0 6vw;
+  padding-left: 1.5em;
+}
+.menu > li {
+  margin-right: 1.2em;
+  transition: 1s;
+}
+.menu > li:hover{
+  transform: translateY(-5px);
+  transition: 1s;
+}
+.menu > li a{
+  padding: 5px 8px;
+  border-radius: 1.05em;
+  color: purple;
+  transition: .5s;
+  white-space: nowrap;
+}
+.menu > li a:hover{
+  background: purple;
+  color: white;
+  transition: .2s;
+}
+
+.login{
+  font-weight: 900;
+  font-size: 1.2em;
+  color: transparent;
+  background-image: linear-gradient(to right, purple, blue);
+  background-size: cover;
+  -webkit-background-clip: text;
+  margin-right: 20px;
+}
+
+.login:hover{
+  background: linear-gradient(to left, purple, blue);
+  -webkit-background-clip: text;
+}
+
+.bt-cadastro{
+  color: white;
+  padding: 5px 1.5em;
+  border-radius: 1.05em;
+  white-space: nowrap;
+  background: linear-gradient(to right, purple, blue);
+  transition: .2s;
+}
+.bt-cadastro:hover{
+  box-shadow: 0 0 10px gray;
+  transform: scale(1.2,1.2);
+  transition: .2s;
+}
+
+/* Estilização da home e atribuiçoes gerais a todas as section*/
+.home{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-image: radial-gradient(transparent 40%, rgba(0, 0, 0, 0.6));
+}
+.home > article{
+  margin: auto;
+}
+.home > article > h1{
+  font-size: 2.5em;
+}
+.home > article > h1 span{
+  color: purple;
+}
+
+/* Sessão Sobre a empresa */
+.sobre{
+  height: 100vh;
+  background-image: url("img/reflexobg.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sobre > div{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: linear-gradient(to top , var(--bg-color) 85%, rgba(0, 0, 0, 0.6));
+}
+.sobre > div > h1{
+  font-size: 4em;
+}
+.sobre > div > article{
+  width: 30%;
+  padding: 10px;
+}
+.sobre > div > article > p{
+  text-align: justify;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+}
+.sobre > div > article > p::first-letter{
+  color: purple;
+  font-size: 3em;
+  width: 3em;
+  height: 3em;
+  padding: 10px;
+  font-family: var(--font-logo);
+  font-weight: 900;
+  float: left;
+  line-height: 1em;
+  text-transform: capitalize;
+}
+
+/* serviços */
+.servicos{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, var(--bg-color) 1%, purple 99%);
+}
+.servicos > .area_servico{
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+.servicos > .area_servico > .text_servico{
+  float: left;
+  width: 350px;
+  height: 450px;
+  box-shadow: 0 0 10px purple;
+  background: purple ;
+  z-index: 1;
+}
+.servicos > .area_servico > .form_servico{
+  position: static;
+  transform: none;
+  border-radius: 0;
+}
+
+/* estilo do formulario */
+.form{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 350px;
+  padding: 20px;
+  background: var(--bg-color);
+  box-shadow: 0 0 10px purple;
+  border-radius: 10px;
+}
+.form::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+.form > .logo{
+  box-sizing: content-box;
+  margin: 40px auto;
+  font-size: 2em;
+  line-height: 0;
+}
+
+input[type=text],input[type=password] {
+  width: 100%;
+  padding: 4px;
+  border: 0.5px solid gray;
+  border-radius: 4px;
+  resize: vertical;
+}
+input[type=text],input[type=password],select,option:focus{
+  outline-color: purple;
+}
+
+select{
+  width: 100%;
+  padding: 4px;
+  border: 0.5px solid gray;
+  border-radius: 4px;
+  resize: vertical;
+}
+textarea{
+  width: 100%;
+  padding: 4px;
+  border: 0.5px solid gray;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  color: purple;
+  padding: 10px 12px 0 0;
+  display: inline-block;
+}
+.botao{
+  display: inline-block;
+  margin-top: 20px;
+  background: purple;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  width: 10em;
+}
+.botao:hover {
+  box-shadow: 0 0 10px gray;
+  transform: translateY(-5px);
+  transition: 1s;
+}
