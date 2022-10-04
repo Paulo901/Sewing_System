@@ -43,13 +43,13 @@ public class ClientController {
     @GetMapping("/{email}/{password}")
     public ResponseEntity<Object> getClientByEmail(@PathVariable(value = "email" ) String email,
                                                    @PathVariable(value = "password") String password) {
-        Stream<Client> clientModelStream = clientService.findByEmail(email);
-        Optional<Client> clientModelOptional = clientModelStream.findFirst();
+        Optional<Stream<Client>> clientModelOptional = clientService.findByEmail(email);
+  //      Optional<Client> clientModelOptional = clientModelStream.get();
 
         if (!clientModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client Not Found!");
         }
-        clientService.validation(clientModelOptional.get(), password);
+//        clientService.validation(clientModelOptional.get().findAny(), password);
         return ResponseEntity.status(HttpStatus.OK).body(clientModelOptional.get());
     }
 

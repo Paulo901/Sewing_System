@@ -13,11 +13,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Table(name = "TB_HISTORIC")
 public class Historic {
 
-    public Historic(HistoricDto dto, Client client, Products product, List<Discounts> discounts, State state) {
+    public Historic(HistoricDto dto, Client client, Products product, State state) {
         this.purchaseDate = LocalDateTime.now();
         this.address = dto.getAddress();
         this.state = state;
-        this.discounts = discounts;
+//        this.discounts;
         this.product = product;
         this.client = client;
     }
@@ -41,8 +41,8 @@ public class Historic {
     @Column(nullable = false)
     private State state;
 
-    @Column(nullable = false)
-    private Double totalPay;
+//    @Column(nullable = false)
+//    private Double totalPay;
 
 
 
@@ -90,13 +90,13 @@ public class Historic {
         this.address = address;
     }
 
-    public double getTotalPay() {
-        return totalPay;
-    }
+//    public double getTotalPay() {
+//        return totalPay;
+//    }
 
-    public void setTotalPay(Double totalPay) {
-        this.totalPay = totalPay;
-    }
+//    public void setTotalPay(Double totalPay) {
+//        this.totalPay = totalPay;
+//    }
 
     public ProductDetails getProductDetails() {
         return productDetails;

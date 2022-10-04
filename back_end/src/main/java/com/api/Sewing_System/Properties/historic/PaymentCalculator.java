@@ -16,29 +16,30 @@ public class PaymentCalculator {
 
     private Double price;
 
-    private Double discounts;
+    private Double discounts = 1.0;
 
     private Double freightValue;
 
 // Methods <---------------------------
 
     public Double totalToPay(List<Discounts> discounts){
-        return (price + freightValue)/ DiscountsCalculation(discounts);
+        this.discounts = 30.0;
+        return (price + freightValue)/ this.discounts;
     }
 
     public Double DiscountsCalculation(List<Discounts> discounts){
-        if (discounts != null) {
-            return discounts.stream()
-                     .mapToDouble(Discounts::getDiscountValue)
-                     .average().getAsDouble();
+//        if (discounts != null) {
+//           return discounts.stream()
+//                     .mapToDouble(Discounts::getDiscountValue)
+//                    .average().getAsDouble();
 
 
-//            if (discounts != null) {
-//                discounts.forEach(discounts ->
-//                        discounts.i;
-//            }
+            if (discounts != null) {
+                discounts.forEach(discount ->
+                        this.discounts += discount.getDiscountValue());
+                return this.discounts;
         }
-        return Double.valueOf(1);
+        return this.discounts;
     }
 
     public Double freightCalculation(State state){
