@@ -7,39 +7,36 @@ import java.util.OptionalDouble;
 
 public class PaymentCalculator {
 
-    public PaymentCalculator(Double price, State state){
+    public PaymentCalculator(Double price, State state, List<Discounts> discounts){
         this.price = price;
         this.freightValue = freightCalculation(state) * 1.5;
+
+        totalToPay(discounts);
     }
 
 // ------------------------------------
 
     private Double price;
 
-    private Double discounts = 1.0;
+    private Double totalDiscounts = 0.0;
 
     private Double freightValue;
 
+    private Double total;
+
 // Methods <---------------------------
 
-    public Double totalToPay(List<Discounts> discounts){
-        this.discounts = 30.0;
-        return (price + freightValue)/ this.discounts;
+    public void totalToPay(List<Discounts> discounts){
+        DiscountsCalculation(discounts);
+        total = (price + freightValue)/ totalDiscounts;
     }
 
-    public Double DiscountsCalculation(List<Discounts> discounts){
-//        if (discounts != null) {
-//           return discounts.stream()
-//                     .mapToDouble(Discounts::getDiscountValue)
-//                    .average().getAsDouble();
-
-
-            if (discounts != null) {
-                discounts.forEach(discount ->
-                        this.discounts += discount.getDiscountValue());
-                return this.discounts;
+    public void DiscountsCalculation(List<Discounts> discounts){
+        if (discounts != null) {
+            discounts.forEach(discount -> totalDiscounts += discount.getDiscountValue());
+        }else{
+            totalDiscounts = 1.0;
         }
-        return this.discounts;
     }
 
     public Double freightCalculation(State state){
@@ -80,5 +77,9 @@ public class PaymentCalculator {
             default -> {return 0.0;}
 
         }
+    }
+
+    public Double getTotal() {
+        return total;
     }
 }

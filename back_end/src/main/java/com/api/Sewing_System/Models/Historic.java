@@ -41,8 +41,8 @@ public class Historic {
     @Column(nullable = false)
     private State state;
 
-//    @Column(nullable = false)
-//    private Double totalPay;
+    @Column(nullable = false)
+    private Double totalPay;
 
 
 
@@ -90,13 +90,13 @@ public class Historic {
         this.address = address;
     }
 
-//    public double getTotalPay() {
-//        return totalPay;
-//    }
+    public double getTotalPay() {
+        return totalPay;
+    }
 
-//    public void setTotalPay(Double totalPay) {
-//        this.totalPay = totalPay;
-//    }
+    public void setTotalPay(Double totalPay) {
+        this.totalPay = totalPay;
+    }
 
     public ProductDetails getProductDetails() {
         return productDetails;
