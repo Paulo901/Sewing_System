@@ -13,6 +13,9 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/cart")
 public class CartController {
 
     final CartService cartService;

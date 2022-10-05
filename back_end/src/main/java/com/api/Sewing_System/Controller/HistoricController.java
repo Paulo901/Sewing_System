@@ -8,10 +8,7 @@ import javax.validation.Valid;
 
 import com.api.Sewing_System.Models.*;
 import com.api.Sewing_System.Properties.historic.PaymentCalculator;
-import com.api.Sewing_System.Service.ClientService;
-import com.api.Sewing_System.Service.DiscountsService;
-import com.api.Sewing_System.Service.HistoricService;
-import com.api.Sewing_System.Service.ProductService;
+import com.api.Sewing_System.Service.*;
 import com.api.Sewing_System.dtos.HistoricDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
@@ -35,13 +32,15 @@ public class HistoricController {
     private ClientService clientService;
     private ProductService productService;
     private DiscountsService discountsService;
+    private CartService cartService;
 
-    public HistoricController(HistoricService historicService, ClientService clientService,
+    public HistoricController(HistoricService historicService, ClientService clientService, CartService cartService,
                               ProductService productService, DiscountsService discountsService) {
         this.historicService = historicService;
         this.clientService = clientService;
         this.productService = productService;
         this.discountsService = discountsService;
+        this.cartService = cartService;
     }
 
     @PostMapping
@@ -51,17 +50,14 @@ public class HistoricController {
 
         List<Discounts> discounts = new ArrayList<>();
         if (historicDto.getDiscounts() != null) {
-            historicDto.getDiscounts().forEach(discount ->
-                    discounts.add(discountsService.findById(discount).get()));
+            historicDto.getDiscounts().forEach(discount -> discounts.add(discountsService.findById(discount).get()));
         }
         if (client.isPresent()) {
-
             var historic = new Historic(historicDto, client.get(), product.get(), historicService.selectState(historicDto.getState()));
             historic.setDiscounts(discounts);
             historic.setTotalPay(new PaymentCalculator(product.get().getPrice(), historicService.selectState(historicDto.getState())
                     , discounts).getTotal());
-
-//            client.get().getCart().;
+            cartService.upDatingCart(client.get(), product.get());
 
             return ResponseEntity.status(HttpStatus.CREATED).body(historicService.save(historic));
         } else {

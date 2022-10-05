@@ -17,7 +17,6 @@ public class Historic {
         this.purchaseDate = LocalDateTime.now();
         this.address = dto.getAddress();
         this.state = state;
-//        this.discounts;
         this.product = product;
         this.client = client;
     }
@@ -60,7 +59,7 @@ public class Historic {
     
     @OneToMany(mappedBy = "historic", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @Column(name = "discount_id")
-    @JsonProperty("discount")
+    @JsonProperty("discounts")
     private List<Discounts> discounts = new ArrayList<>();
 
 // Methods <---------------------------
@@ -128,5 +127,13 @@ public class Historic {
 
     public void setDiscounts(List<Discounts> discounts) {
         this.discounts = discounts;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }

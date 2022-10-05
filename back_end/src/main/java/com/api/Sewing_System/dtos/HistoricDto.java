@@ -10,13 +10,13 @@ import java.util.List;
 
 public class HistoricDto {
 
-    @NotNull
-    @NotBlank
+    @NotNull @NotBlank
     private String address;
 
+    @NotNull @NotBlank
     private String state;
 
-//    @NotNull
+//  @NotNull
     private ProductDetails productDetails;
 
 

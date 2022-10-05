@@ -10,13 +10,12 @@ import java.util.List;
 
 public class CartDto {
 
-    @NotNull
+//    @NotNull
     private ProductDetails productDetails;
 //Tem que desfazer a tabela ao fazer a compra(add em historic)
 
     @NotNull
     private Long product;
-
 
     @NotNull
     private Long client;

@@ -34,10 +34,10 @@ public class Cart {
 
     @ManyToOne
     private ProductDetails productDetails;
-//Tem que desfazer a tabela ao fazer a compra(add em historic).
 
     @ManyToOne
     private Products product;
+//Tem que desfazer a tabela ao fazer a compra(add em historic).
 
     @ManyToOne
     @JsonIgnore
