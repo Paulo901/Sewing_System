@@ -1,4 +1,4 @@
-.form@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Pacifico&display=swap');
 
 :root{
 
@@ -20,69 +20,77 @@
   font-family: var(--font-text);
 }
 
-
 /* Logo */
-.logo{
-  font-family: var(--font-logo);
-  font-weight: 900;
-  color: purple;
-  text-decoration: underline dashed;
-  text-decoration-thickness: 3px;
-  -webkit-ext-decoration-thickness: 3px;
-  white-space: nowrap;
-}
-.logo > i{
-  vertical-align: sub;
-  font-size: .8em;
-}
+#logo{
+    font-family: var(--font-logo);
+    font-weight: 900;
+    color: purple;
+    text-decoration: underline dashed;
+    text-decoration-thickness: 3px;
+    -webkit-ext-decoration-thickness: 3px;
+    white-space: nowrap;
+  }
+#logo > i{
+    vertical-align: sub;
+    font-size: .8em;
+  }
+/* Logo */
 
 /* abaixo segue codigos de estilização do header*/
-header{
+.header{
   position: fixed;
-  width: 100%;
   top: 0;
+
+  width: 100vw;
+  padding: 20px 5vw;
+  box-shadow: 0 3px 7px gray;
+  background: rgba(250,245,250, 0.8);
+}
+.content_header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 5vw;
-  box-shadow: 0 3px 7px gray;
-  background: rgba(255, 255, 255, 0.6);
+
+  max-width: 1300px;
+  margin: auto;
 }
-header > a:nth-child(1){
+.header_logo{
   font-size: 2em;
   line-height: 0;
 }
-#menu-op{display: none;}
-#menu-cl{display: none;}
-nav{display: flex;justify-content: space-between; align-items: center;}
-.menu{
+.menu-op{display: none;}
+.menu-cl{display: none;}
+.menu_pg{
   display: flex;
   align-items: center;
-  margin: 0 6vw;
-  padding-left: 1.5em;
 }
-.menu > li {
-  margin-right: 1.2em;
+.menu_pg > li {
+  margin: 0 .5vw;
   transition: 1s;
-}
-.menu > li:hover{
-  transform: translateY(-5px);
-  transition: 1s;
-}
-.menu > li a{
-  padding: 5px 8px;
-  border-radius: 1.05em;
+
+  padding: 5px 1em;
+  border-radius: 1em;
   color: purple;
   transition: .5s;
   white-space: nowrap;
 }
-.menu > li a:hover{
+.menu_pg > li:hover{
+  transform: translateY(-5px);
+  transition: 1s;
+
   background: purple;
   color: white;
   transition: .2s;
 }
-
-.login{
+.menu_pg a{
+  color: inherit;
+}
+.menu_user{
+  display: flex;
+  justify-content: space-evenly;
+}
+.bt_login{
+  display: block;
   font-weight: 900;
   font-size: 1.2em;
   color: transparent;
@@ -90,14 +98,16 @@ nav{display: flex;justify-content: space-between; align-items: center;}
   background-size: cover;
   -webkit-background-clip: text;
   margin-right: 20px;
+  transition: .2s;
 }
-
-.login:hover{
+.bt_login:hover{
   background: linear-gradient(to left, purple, blue);
   -webkit-background-clip: text;
+  transform: scale(1.2,1.2);
+  transition: .2s;
 }
-
-.bt-cadastro{
+.bt_cadastro{
+  display: block;
   color: white;
   padding: 5px 1.5em;
   border-radius: 1.05em;
@@ -105,98 +115,14 @@ nav{display: flex;justify-content: space-between; align-items: center;}
   background: linear-gradient(to right, purple, blue);
   transition: .2s;
 }
-.bt-cadastro:hover{
+.bt_cadastro:hover{
   box-shadow: 0 0 10px gray;
   transform: scale(1.2,1.2);
   transition: .2s;
 }
-
-/* Estilização da home e atribuiçoes gerais a todas as section*/
-.home{
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  background-image: radial-gradient(transparent 40%, rgba(0, 0, 0, 0.6));
-}
-.home > article{
-  margin: auto;
-}
-.home > article > h1{
-  font-size: 2.5em;
-}
-.home > article > h1 span{
-  color: purple;
-}
-
-/* Sessão Sobre a empresa */
-.sobre{
-  height: 100vh;
-  background-image: url("img/reflexobg.png");
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.sobre > div{
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: space-evenly;
-  background-image: linear-gradient(to top , var(--bg-color) 85%, rgba(0, 0, 0, 0.6));
-}
-.sobre > div > h1{
-  font-size: 4em;
-}
-.sobre > div > article{
-  width: 30%;
-  padding: 10px;
-}
-.sobre > div > article > p{
-  text-align: justify;
-  letter-spacing: 0px;
-  word-spacing: 0px;
-}
-.sobre > div > article > p::first-letter{
-  color: purple;
-  font-size: 3em;
-  width: 3em;
-  height: 3em;
-  padding: 10px;
-  font-family: var(--font-logo);
-  font-weight: 900;
-  float: left;
-  line-height: 1em;
-  text-transform: capitalize;
-}
-
-/* serviços */
-.servicos{
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  background-image: linear-gradient(to bottom, var(--bg-color) 1%, purple 99%);
-}
-.servicos > .area_servico{
-  display: flex;
-  align-items: center;
-  margin: auto;
-}
-.servicos > .area_servico > .text_servico{
-  float: left;
-  width: 350px;
-  height: 450px;
-  box-shadow: 0 0 10px purple;
-  background: purple ;
-  z-index: 1;
-}
-.servicos > .area_servico > .form_servico{
-  position: static;
-  transform: none;
-  border-radius: 0;
-}
+/* acima segue codigos de estilização do header*/
 
 /* abaixo seguem estilos da seção de produtos*/
-
 .produtos{
   display: flex;
   flex-direction: column;
@@ -242,78 +168,185 @@ nav{display: flex;justify-content: space-between; align-items: center;}
   text-transform: uppercase;
 }
 /* acima seguem estilos da seção de produtos*/
-/* estilo do formulario */
-.form{
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% , -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 350px;
-  padding: 20px;
-  background: var(--bg-color);
-  box-shadow: 0 0 10px purple;
-  border-radius: 10px;
-}
-.form::after{
-  content: "";
-  clear: both;
-  display: table;
-}
-.form > .logo{
-  box-sizing: content-box;
-  margin: 40px auto;
-  font-size: 2em;
-  line-height: 0;
-}
 
-input[type=text],input[type=password] {
-  width: 100%;
-  padding: 4px;
-  border: 0.5px solid gray;
-  border-radius: 4px;
-  resize: vertical;
-}
-input[type=text],input[type=password],select,option:focus{
-  outline-color: purple;
-}
+  /* Estilização da home e atribuiçoes gerais a todas as section*/
+  .home{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-image: radial-gradient(transparent 40%, rgba(0, 0, 0, 0.6));
+  }
+  .home > article{
+    margin: auto;
+  }
+  .home > article > h1{
+    font-size: 2.5em;
+  }
+  .home > article > h1 span{
+    color: purple;
+  }
 
-select{
-  width: 100%;
-  padding: 4px;
-  border: 0.5px solid gray;
-  border-radius: 4px;
-  resize: vertical;
-}
-textarea{
-  width: 100%;
-  padding: 4px;
-  border: 0.5px solid gray;
-  border-radius: 4px;
-  resize: vertical;
-}
+  /* Sessão Sobre a empresa */
+  .sobre{
+    height: 100vh;
+    background-image: url("img/reflexobg.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .sobre > div{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to top , var(--bg-color) 85%, rgba(0, 0, 0, 0.6));
+  }
+  .sobre > div > h1{
+    font-size: 4em;
+  }
+  .sobre > div > article{
+    width: 30%;
+    padding: 10px;
+  }
+  .sobre > div > article > p{
+    text-align: justify;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+  }
+  .sobre > div > article > p::first-letter{
+    color: purple;
+    font-size: 3em;
+    width: 3em;
+    height: 3em;
+    padding: 10px;
+    font-family: var(--font-logo);
+    font-weight: 900;
+    float: left;
+    line-height: 1em;
+    text-transform: capitalize;
+  }
 
-label {
-  color: purple;
-  padding: 10px 12px 0 0;
-  display: inline-block;
+  /* serviços */
+  .servicos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+  }
+  .form_servico{
+    padding: 1em;
+    width: 500px;
+    border: 2px solid purple;
+    border-radius: 1em;
+    background: var(--bg-color);
+  }
+
+
+
+  /* estilo do formulario */
+  .form{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    padding: 20px;
+    background: var(--bg-color);
+    box-shadow: 0 0 10px purple;
+    border-radius: 10px;
+  }
+  .form::after{
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .form > .logo{
+    box-sizing: content-box;
+    margin: 40px auto;
+    font-size: 2em;
+    line-height: 0;
+  }
+
+  input[type=text],input[type=password] {
+    width: 100%;
+    padding: 4px;
+    border: 0.5px solid gray;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  input[type=text],input[type=password],select,option:focus{
+    outline-color: purple;
+  }
+
+  select{
+    width: 100%;
+    padding: 4px;
+    border: 0.5px solid gray;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  textarea{
+    width: 100%;
+    padding: 4px;
+    border: 0.5px solid gray;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  label {
+    color: purple;
+    padding: 10px 12px 0 0;
+    display: inline-block;
+  }
+  .botao{
+    display: inline-block;
+    margin-top: 20px;
+    background: purple;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    width: 10em;
+  }
+  .botao:hover {
+    box-shadow: 0 0 10px gray;
+    transform: translateY(-5px);
+    transition: 1s;
+  }
+
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+  .content_header{
+    display: grid;
+    grid-gap: 1em;
+  }
+  .header_logo{
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .menu_user{
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .menu{
+    display: flex;
+    justify-content: center;
+
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
 }
-.botao{
-  display: inline-block;
-  margin-top: 20px;
-  background: purple;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-  width: 10em;
-}
-.botao:hover {
-  box-shadow: 0 0 10px gray;
-  transform: translateY(-5px);
-  transition: 1s;
+@media screen and (max-width: 700px) {
+  .menu{
+    display: none;
+  }
+  .menu-op{
+    display: block;
+  }
 }
