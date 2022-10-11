@@ -5,24 +5,26 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>
-		Landing page
+		Sewing System
 	</title>
 
 	<!-- icons -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 	<link rel="stylesheet" type="text/css" href="css/estiloCostura.css">
 
-	<script type="text/javascript" src="script/conteudo.js" defer></script>
+	<script type="text/javascript" src="script/indexScript.js" defer></script>
 
 </head>
 <body>
 	<header class="header">
 		<div class="content_header">
 			<a id="logo" class="header_logo" href="#home"><i class="material-symbols-outlined">cut</i>Constura</a>
-			<i class="menu-op" class="material-symbols-outlined">menu_open</i>
+			<span class="material-symbols-outlined menu_op" onclick="ct.menu('open')">menu_open</span>
 
 			<nav class="menu">
-				<span class="menu-cl" class="material-symbols-outlined">menu_open</span>
+				<span class="material-symbols-outlined menu_cl" onclick="ct.menu('close')">menu_open</span>
 				<ul class="menu_pg">
 					<li><a href="#home">Home</a></li>
 					<li><a href="#sobre">Sobre Nós</a></li>
@@ -41,12 +43,12 @@
 
 	<section id="home" class="home">
 		<article class="content-home">
-			<h1><span>Costurando</span> soluções<br/>&amp; Recuperando <span>paixões</span></h1>
+			<h1 class="text_home"><span>Costurando</span> soluções<br/>&amp; Recuperando <span>paixões</span></h1>
 		</article>
 	</section>
 	<section id="sobre" class="sobre">
 		<div class="content-about">
-			<h1 id="logo" href="#home"><i class="material-symbols-outlined">cut</i>Constura</h1>
+			<h1 id="logo" class="about_logo" href="#home"><i class="material-symbols-outlined">cut</i>Constura</h1>
 			<article class="sobre-nos">
 				<p>Somos uma empresa que se especializou em solucionar problemas com roupas no geral. percebemos que nossos serviços sempre foram de grande ajuda para as pessoas por 2 motivos: finaceiro e pratico.</p>
 			</article>
@@ -124,35 +126,7 @@
 
 	</section>
 <!-- seção de produtos: os codigos comentados são modelos -->
-<!--<script>
 
-	let header = document.querySelector(".content_header");
-	let menu = document.querySelector(".menu");
-	let user = document.querySelector(".menu_user");
 
-	addEventListener("resize", () => {
-		if (`${window.innerWidth}` <= '700') {
-			menu.appendChild(user);
-		}
-		if (`${window.innerWidth}` > '700' && menu.querySelector(".menu_user").className == 'menu_user'){
-			console.log("é filho");
-			header.appendChild(user);
-			menu.removeChild(user);
-
-		}
-	});
-
-	addEventListener("load", () => {
-		if (`${window.innerWidth}` <= '700') {
-			menu.appendChild(user);
-		}
-		if (`${window.innerWidth}` > '700' && menu.querySelector(".menu_user").className == 'menu_user'){
-			console.log("é filho");
-			header.appendChild(user);
-			menu.removeChild(user);
-
-		}
-	});
-</script>-->
 </body>
 </html>
