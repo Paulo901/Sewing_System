@@ -1,0 +1,102 @@
+/* Logo */
+.logo_form{
+    font-family: var(--font-logo);
+    font-weight: 900;
+    color: purple;
+    text-decoration: underline dashed;
+    text-decoration-thickness: 3px;
+    -webkit-ext-decoration-thickness: 3px;
+    white-space: nowrap;
+  }
+.logo_form > i{
+    vertical-align: sub;
+    font-size: .8em;
+  }
+/* Logo */
+
+.logo_form{
+  font-size: 2em;
+  line-height: 3em;
+
+  align-self: center;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+
+  max-width: 300px;
+  padding: 20px;
+
+  background: var(--bg-color);
+  box-shadow: 0 0 10px purple;
+
+  border-radius: 10px;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+/* estilo do formulario */
+
+form{
+  padding: 1em;
+  width: 500px;
+  border: 2px solid purple;
+  border-radius: 1em;
+  background: var(--bg-color);
+}
+
+  input[type=text],input[type=password] {
+    width: 100%;
+    padding: 4px;
+    border: 0.5px solid gray;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  input[type=text],input[type=password],select,option,textarea:focus{
+    outline-color: purple;
+  }
+
+  select{
+    width: 100%;
+    padding: 4px;
+    border: 0.5px solid gray;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  textarea{
+    width: 100%;
+    padding: 4px;
+    border: 0.5px solid gray;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  label {
+    color: purple;
+    padding: 10px 12px 0 0;
+    display: inline-block;
+  }
+  .button{
+    display: inline-block;
+    margin-top: 20px;
+    background: purple;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    width: 10em;
+  }
+  .button:hover {
+    box-shadow: 0 0 10px gray;
+    transform: translateY(-5px);
+    transition: 1s;
+  }

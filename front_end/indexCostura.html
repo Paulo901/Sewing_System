@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<link rel="stylesheet" type="text/css" href="css/estiloCostura.css">
+	<link rel="stylesheet" type="text/css" href="css/formulario.css">
 
 	<script type="text/javascript" src="script/indexScript.js" defer></script>
 
@@ -54,9 +55,9 @@
 			</article>
 	</section>
 
-	<section class="servicos">
+	<section id="servicos" class="servicos">
 
-			<form class="form_servico">
+			<form>
 				<div class="linha">
 					<label for="nome">Nome</label>
 					<input type="text" id="nome" name="nome" placeholder="Digite seu nome.">
@@ -78,7 +79,7 @@
 				</div>
 				<br>
 				<div class="linha">
-					<input type="submit" value="Enviar">
+					<input class="button" type="submit" value="Enviar">
 				</div>
 			</form>
 
@@ -86,7 +87,7 @@
 	</section>
 
 <!-- seção de produtos: os codigos comentados são modelos -->
-	<section class="produtos">
+	<section id="produtos" class="produtos">
 		<div class="produto_selecionado">
 		</div>
 		<p class="titulo">Produtos</p>

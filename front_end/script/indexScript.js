@@ -68,6 +68,7 @@ produtos(){
   this.populares();
   this.novos();
   this.destaques();
+  this.favoritos();
 }
 
 populares(){
@@ -207,6 +208,51 @@ destaques(){
     mv.send();
 
    }
+   favoritos(){
+
+       let mv = new XMLHttpRequest();
+
+       mv.onload = function() {
+
+         let produtos = JSON.parse(mv.response);
+
+         for(let i = 0; i < 10; i++){
+
+           //abaixo conteúdo dinâmico
+           let item = document.createElement("div");
+           item.className = "item";
+
+           let img = document.createElement("img");
+           let info = document.createElement("p");
+           let valor = document.createElement("span");
+
+           img.className = "imagem_item";
+           info.className = "info";
+           valor.className = "valor";
+
+           //inserindo valores JSON
+           img.src = produtos[i].url ;
+           info.innerText = produtos[i].title ;
+           valor.innerText = "R$ " + produtos[i].id + "0,00";
+           //inserindo valores JSON
+
+           item.appendChild(img);
+           item.appendChild(info);
+           item.appendChild(valor);
+
+           let favoritos = document.querySelector(".content_favoritos");
+
+           favoritos.appendChild(item);
+
+           //acima conteúdo dinâmico
+         }
+       }
+
+       mv.open("GET","https://jsonplaceholder.typicode.com/todos/1/photos");
+
+       mv.send();
+
+      }
 }
 
 let ct = new Conteudo();
